@@ -1,7 +1,7 @@
 <?php
-require_once("./Config.php");
-require_once("./router.php");
-require_once("./protected/controller/baseController.php");
+require_once(dirname(__FILE__)."\\Config.php");
+require_once(dirname(__FILE__)."\\router.php");
+require_once(dirname(__FILE__)."\\protected/controller/baseController.php");
 
 class scraperApp{
 
