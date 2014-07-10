@@ -13,6 +13,7 @@ class router {
 
 		
 		$this->routerReq["POST"]["/register"]    = "regController"; 
+		$this->routerReq["POST"]["/login"]    = "loginController"; 
 		
 		if(is_array($this->routerReq[$pReqData["REQUEST_METHOD"]])){			
 			$this->reqData = $pReqData;

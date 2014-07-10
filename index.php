@@ -43,7 +43,7 @@ try{
 	$app->init();
 }catch(Exception $exp){	
 	$exp_code = $exp->getCode();
-	if($exp_code == 404){
+	if($exp_code == 404){		
 		header("HTTP/1.0 404 Not Found");
 	}
 	print($exp->getMessage());
