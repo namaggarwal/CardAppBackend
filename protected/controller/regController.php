@@ -19,7 +19,6 @@ class regController extends baseController{
 
 	}
 
-
 	private function register(){
 
 
@@ -57,8 +56,6 @@ class regController extends baseController{
 		}
 
 
-
-
 		if($err){
 
 			$this->sendResponse($output);
@@ -77,6 +74,7 @@ class regController extends baseController{
 				$output["cc"] = $this->data["CountryCode"];
 				$output["pn"] = $this->data["PhoneNumber"];
 				$output["cpn"] = $phone;
+				$output["CARDS"] = array();
 			}		
 			$this->sendResponse($output);	
 		}

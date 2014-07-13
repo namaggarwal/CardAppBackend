@@ -14,6 +14,8 @@ class router {
 		
 		$this->routerReq["POST"]["/register"]    = "regController"; 
 		$this->routerReq["POST"]["/login"]    = "loginController"; 
+		$this->routerReq["POST"]["/card"]    = "cardController"; 
+		$this->routerReq["POST"]["/trans"]    = "transController"; 
 		
 		if(is_array($this->routerReq[$pReqData["REQUEST_METHOD"]])){			
 			$this->reqData = $pReqData;
@@ -28,6 +30,7 @@ class router {
 	}
 
 	public function getController(){
+		
 		if(isset($this->routerReq[$this->reqData["REQUEST_METHOD"]][$this->reqData["REQUEST_URL"]])){
 			return $this->routerReq[$this->reqData["REQUEST_METHOD"]][$this->reqData["REQUEST_URL"]];	
 		}else{

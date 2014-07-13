@@ -1,6 +1,7 @@
 <?php
 
 require_once(dirname(dirname(__FILE__))."/model/usersModel.php");
+require_once(dirname(dirname(__FILE__))."/model/cardsModel.php");
 
 //Controller class for the Register page requests
 class loginController extends baseController{
@@ -60,12 +61,22 @@ class loginController extends baseController{
 
 			$this->dbConn = $this->acquireDbConn();
 			$usersModelObj = new usersModel($this->dbConn);
+			$cardsModelObj = new cardsModel($this->dbConn);
 
 			$output = $usersModelObj->validateUser($phone,$this->data["Password"]);
 			if($output["REQUEST_STATUS"] == 1){
 				$output["cc"] = $this->data["CountryCode"];
 				$output["pn"] = $this->data["PhoneNumber"];			
 				$output["cpn"] = $phone;
+				$cardsout = $cardsModelObj->getAllCardsForUser($output["id"]);
+				if($cardsout["REQUEST_STATUS"] == 1){
+					$output["CARDS"] = $cardsout["CARDS"];
+				}else{
+					$output = $cardsout;
+				}
+				
+
+
 			}
 
 

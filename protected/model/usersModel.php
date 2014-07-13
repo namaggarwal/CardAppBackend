@@ -13,7 +13,7 @@ class usersModel{
 
 	public function insertNewUser($phone,$password){
 
-		$query = "Insert into ".config::USER_TABLE. " (phone,password) VALUES ( '".$phone."',password('".$password."') );";		
+		$query = "Insert into ".config::USER_TABLE. " (phone,password) VALUES ( '".$this->dbConn->escape_string($phone)."',password('".$this->dbConn->escape_string($password)."') );";		
 
 
 		$res = $this->dbConn->query($query);
