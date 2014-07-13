@@ -16,6 +16,23 @@ class transModel{
 
 		$query = "Select * from ".config::TRANS_TABLE. " where recid=".$userid." OR sendid = ".$userid." ORDER BY trantime DESC";
 
+
+/*		SELECT 
+IF(t.recid='14',1,2) as transtype
+,t.amount
+,c.num
+,t.transtime
+FROM 
+carddb.trans t
+inner join
+carddb.cards c
+on t.reccardid = c.id
+WHERE (recid = 14
+OR sendid =14)
+AND t.transtime > '2014-07-13 00:00:00'
+ORDER BY transtime DESC
+;
+*/
 		$res = $this->dbConn->query($query);
 
 		$output = array();
