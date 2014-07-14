@@ -19,8 +19,7 @@ class transController extends baseController{
 		$this->data["reccardid"] = isset($_REQUEST["reccardid"])?$_REQUEST["reccardid"]:null;
 		$this->data["till"] = isset($_REQUEST["till"])?$_REQUEST["till"]:null;		
 		$this->data["act"] = isset($_REQUEST["act"])?$_REQUEST["act"]:null;
-		
-
+			
 		switch($this->data["act"]){
 
 
@@ -29,7 +28,7 @@ class transController extends baseController{
 				break;
 			case "list":
 					$this->getAllTransactions();
-
+					break;
 			default:
 				$output = array();
 				$output["REQUEST_STATUS"] = 2;
