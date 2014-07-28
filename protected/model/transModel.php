@@ -68,7 +68,7 @@ class transModel{
 					carddb.cards c
 					on IF(t.recid=".$userid.",t.sendcardid,t.reccardid) = c.id
 					WHERE (recid = ".$userid."
-					OR sendid =14)
+					OR sendid =".$userid.")
 					AND t.transtime >= '".$startTime."'
 					AND t.transtime <= '".$endTime."'
 					ORDER BY transtime DESC
