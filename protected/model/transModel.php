@@ -97,7 +97,7 @@ class transModel{
 				$output[$key][$trans->id]["id"]         = $trans->id;
 				$output[$key][$trans->id]["transtype"]  = $trans->transtype;
 				$output[$key][$trans->id]["amount"]     = $trans->amount;
-				$output[$key][$trans->id]["cardnum"]    = "xxxx-xxxx-xxxx-".substr($trans->cardnum,12);
+				$output[$key][$trans->id]["cardnum"]    = "XXXX-XXXX-XXXX-".substr($trans->cardnum,12);
 				$output[$key][$trans->id]["transtime"]  = $trans->transtime;
 
 				if($key == "TRANSREC"){
