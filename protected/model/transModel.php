@@ -59,8 +59,7 @@ class transModel{
 					t.id as id
 					,IF(t.recid='".$userid."',1,2) as transtype
 					,t.amount as amount
-					,c.num as cardnum
-					,c.name as cardname
+					,c.num as cardnum					
 					,t.transtime as transtime
 					FROM 
 					carddb.trans t
@@ -98,8 +97,7 @@ class transModel{
 				$output[$key][$trans->id]["id"]         = $trans->id;
 				$output[$key][$trans->id]["transtype"]  = $trans->transtype;
 				$output[$key][$trans->id]["amount"]     = $trans->amount;
-				$output[$key][$trans->id]["cardnum"]    = $trans->cardnum;
-				$output[$key][$trans->id]["cardname"]   = $trans->cardname;
+				$output[$key][$trans->id]["cardnum"]    = "xxxx-xxxx-xxxx-"+substr($trans->cardnum,11);
 				$output[$key][$trans->id]["transtime"]  = $trans->transtime;
 
 				if($key == "TRANSREC"){
