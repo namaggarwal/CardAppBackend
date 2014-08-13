@@ -74,7 +74,7 @@ class transModel{
 					;";
 		
 		$res = $this->dbConn->query($query);
-		
+		$id=0;
 		if(!$res){
 
 			$output["REQUEST_STATUS"] = 2;
@@ -93,12 +93,13 @@ class transModel{
 			while($trans = $res->fetch_object()){
 
 				$key = ($trans->transtype == 1)?"TRANSREC":"TRANSSENT";
-				$output[$key][$trans->id]               = array();
-				$output[$key][$trans->id]["id"]         = $trans->id;
-				$output[$key][$trans->id]["transtype"]  = $trans->transtype;
-				$output[$key][$trans->id]["amount"]     = $trans->amount;
-				$output[$key][$trans->id]["cardnum"]    = "XXXX-XXXX-XXXX-".substr($trans->cardnum,12);
-				$output[$key][$trans->id]["transtime"]  = $trans->transtime;
+				$id=10000-($trans->id);
+				$output[$key][$id]               = array();
+				$output[$key][$id]["id"]         = $trans->id;
+				$output[$key][$id]["transtype"]  = $trans->transtype;
+				$output[$key][$id]["amount"]     = $trans->amount;
+				$output[$key][$id]["cardnum"]    = "XXXX-XXXX-XXXX-".substr($trans->cardnum,12);
+				$output[$key][$id]["transtime"]  = $trans->transtime;
 
 				if($key == "TRANSREC"){
 					$output["TOTALREC"] +=  $trans->amount;
